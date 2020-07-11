@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Button,{ButtonType,ButtonSize} from './components/Button/button'
 function App() {
   const a ='123'
   if(a==='123'){}
@@ -16,7 +16,7 @@ function App() {
           我是code标签
           const code = '123'
         </code>
-        <p>
+        {/* <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <a
@@ -26,8 +26,19 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> */}
+
+       
       </header>
+      <div>
+      <Button disabled>ButtonSize.Middle</Button>
+        <Button size={ButtonSize.Large}>ButtonSize.Large</Button>
+        <Button size={ButtonSize.Small}>ButtonSize.Small</Button>
+        <Button btnType={ButtonType.Danger}>ButtonType.Danger</Button>
+        <Button btnType={ButtonType.Default}>ButtonType.Default</Button>
+        <Button btnType={ButtonType.Primary}>ButtonType.Primary</Button>
+        <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled>Button Link</Button>
+      </div>
     </div>
   );
 }
