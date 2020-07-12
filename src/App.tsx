@@ -37,7 +37,8 @@ function App() {
         <Button btnType={ButtonType.Danger}>ButtonType.Danger</Button>
         <Button btnType={ButtonType.Default}>ButtonType.Default</Button>
         <Button btnType={ButtonType.Primary}>ButtonType.Primary</Button>
-        <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled>Button Link</Button>
+        <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled>Button Link disabled</Button>
+        <Button btnType={ButtonType.Link} href="http://www.baidu.com" >Button Link</Button>
       </div>
     </div>
   );

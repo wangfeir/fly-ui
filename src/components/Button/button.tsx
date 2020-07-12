@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from 'classnames'
 export enum ButtonType {
-  Default = "primary",
+  Default = "default",
   Primary = "primary",
   Danger = "danger",
   Link = "link",
@@ -39,7 +39,7 @@ const Button: React.FC<BaseButtonProps> = (props) => {
 
   if (btnType === ButtonType.Link && href) {
     return (
-      <a className={classes} href={href}>
+      <a className={classes} href={href} >
         {children}
       </a>
     )
