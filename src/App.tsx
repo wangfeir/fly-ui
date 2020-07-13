@@ -32,13 +32,13 @@ function App() {
       </header>
       <div>
       <Button disabled>ButtonSize.Middle</Button>
-        <Button size={ButtonSize.Large}>ButtonSize.Large</Button>
+        <Button className={`ccdd`} size={ButtonSize.Large} onClick={()=>{alert(123123213)}}>ButtonSize.Large</Button>
         <Button size={ButtonSize.Small}>ButtonSize.Small</Button>
         <Button btnType={ButtonType.Danger}>ButtonType.Danger</Button>
         <Button btnType={ButtonType.Default}>ButtonType.Default</Button>
         <Button btnType={ButtonType.Primary}>ButtonType.Primary</Button>
         <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled>Button Link disabled</Button>
-        <Button btnType={ButtonType.Link} href="http://www.baidu.com" >Button Link</Button>
+        <Button btnType={ButtonType.Link} target="_blank" href="http://www.baidu.com" >Button Link</Button>
       </div>
     </div>
   );

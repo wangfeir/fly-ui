@@ -21,17 +21,23 @@ interface BaseButtonProps {
   disabled?: boolean;
   children: React.ReactNode
 }
-
-const Button: React.FC<BaseButtonProps> = (props) => {
+// React.ButtonHTMLAttributes 是typescript
+type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
+type anchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
+type ButtonProps = Partial<NativeButtonProps&anchorButtonProps>
+const Button: React.FC<ButtonProps> = (props) => {
   const {
     // className,
     btnType= ButtonType.Default,
     size = ButtonSize.Middle,
+    className,
     href,
     disabled,
-    children
+    children,
+    ...restProps
   } = props
-  const classes = classNames('btn', { 
+
+  const classes = classNames('btn',className, { 
     [`btn-${size}`]: size, 
     [`btn-${btnType}`]         :btnType,
     'disabled': btnType === ButtonType.Link && disabled 
@@ -39,13 +45,13 @@ const Button: React.FC<BaseButtonProps> = (props) => {
 
   if (btnType === ButtonType.Link && href) {
     return (
-      <a className={classes} href={href} >
+      <a className={classes} href={href} {...restProps}>
         {children}
       </a>
     )
   } else {
     return (
-      <button className={classes} disabled={disabled}>
+      <button className={classes} disabled={disabled}  {...restProps}>
         {children}
       </button>
     )
