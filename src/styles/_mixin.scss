@@ -32,3 +32,11 @@
   }
   
 }
+@mixin alert-style(
+  $background-color,
+  $border-color,
+){
+  // background-color: lighten($border-color,20%);
+  background-color: $background-color;
+  border-color: $border-color,;
+}

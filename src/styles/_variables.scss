@@ -198,3 +198,20 @@ $btn-border-radius-sm:$border-radius-sm !default;
 $btn-transition:all .3s cubic-bezier(.645,.045,.355,1);
 // 背景颜色
 $btn-background-color-defalut:$white !default;
+
+
+
+// 提示框
+$alert-border-width:$border-width!default;
+$alert-padding-x: 0.5rem!default;
+$alert-padding-y: 1rem!default;
+$alert-background-success: #f6ffed;
+$alert-background-error: #fff2f0;
+$alert-background-warning: #fffbe6;
+$alert-background-info: #e6f7ff;
+
+$alert-bordercolor-success: #b7eb8f;
+$alert-bordercolor-error: #ffccc7;
+$alert-bordercolor-warning: #ffe58f;
+$alert-bordercolor-info: #91d5ff;
+

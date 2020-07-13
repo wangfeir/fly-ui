@@ -1,0 +1,24 @@
+.alert{
+  padding: $alert-padding-x $alert-padding-y;
+  margin-bottom: 1rem;
+  font-size: $font-size-base;
+  color: $body-color;
+  background-image: none;
+  text-align: left;
+
+  border: $alert-border-width solid transparent;
+}
+
+.alert-success{
+  @include alert-style($alert-background-success,$alert-bordercolor-success)
+}
+.alert-error{
+  @include alert-style($alert-background-error,$alert-bordercolor-error)
+}
+.alert-warning{
+  @include alert-style($alert-background-warning,$alert-bordercolor-warning)
+}
+.alert-info{
+  @include alert-style($alert-background-info,$alert-bordercolor-info)
+}
+

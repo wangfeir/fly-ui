@@ -1,5 +1,6 @@
 import React from 'react';
 import Button,{ButtonType,ButtonSize} from './components/Button/button'
+import Alert from './components/Alert/alert'
 function App() {
   const a ='123'
   if(a==='123'){}
@@ -39,6 +40,13 @@ function App() {
         <Button btnType={ButtonType.Primary}>ButtonType.Primary</Button>
         <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled>Button Link disabled</Button>
         <Button btnType={ButtonType.Link} target="_blank" href="http://www.baidu.com" >Button Link</Button>
+      </div>
+
+      <div>
+      <Alert message="Success Text" type="success" />
+    <Alert message="Info Text" type="info" />
+    <Alert message="Warning Text" type="warning" />
+    <Alert message="Error Text" type="error" />
       </div>
     </div>
   );
