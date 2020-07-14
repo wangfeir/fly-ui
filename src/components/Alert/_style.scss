@@ -8,6 +8,8 @@
   text-align: left;
   line-height: $line-height-base;
   border: $alert-border-width solid transparent;
+    // transition: $btn-transition;
+
 }
 
 .alert-success{
@@ -40,4 +42,18 @@
     color: $gray-700;
   }
   
+}
+.alert-description-context{
+  .alert-description-context-message{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin: 0;
+  }
+  .alert-description-context-description{
+    font-size: .8rem;
+    color: $gray-700;
+    line-height: 1.2rem;
+    margin: 0;
+
+  }
 }

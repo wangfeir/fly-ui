@@ -48,6 +48,9 @@ function App() {
       <Alert message="Info Text" type="info" />
       <Alert message="Warning Text" type="warning" />
       <Alert message="Error Text" type="error" />
+      <Alert message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" />
+      <Alert message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" closable/>
+      <Alert message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" closable/>
       </div>
     </div>
   );

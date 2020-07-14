@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
 // import { AntDesignOutline, DashboardOutline, TwitterOutline } from '@ant-design/icons';
 // import AntdIcon from '@ant-design/icons-react';
@@ -16,7 +16,10 @@ interface AlertProps {
   type: string,
   message: string,
   closable?: boolean,
-  closeText?:string
+  closeText?: string,
+  description?: string   // 信息详情
+  showIcon?: boolean,
+
 }
 
 const Alert: React.FC<AlertProps> = (props) => {
@@ -24,19 +27,42 @@ const Alert: React.FC<AlertProps> = (props) => {
     type,
     message,
     closable,
-    closeText
+    closeText,
+    description,
+    showIcon
   } = props
-  const classes = classNames('alert', { [`alert-${type}`]: type, [`alert-${closable}`]: closable })
-  const closeShow = closable||closeText
+  const [show, setShow] = useState(true)
+  const classes = classNames('alert', { [`alert-${type}`]: type, [`alert-${closable}`]: closable, [`alert-${description}`]: description })
+  const closeShow = closable || closeText
+
   return (
-    <div className={classes}>
-      <p>
-        {message}
-      </p>
-      {closeShow && <button className="alert-close-btn">
-        {closeText?closeText:<CloseOutlined />}
-      </button>}
-    </div>
+    <>
+      {show && <div className={classes}>
+        {/* 默认样式 */}
+        {!description && <div className="alert-default-context">
+          <span>
+            {message}
+          </span>
+          {/* 关闭按钮 */}
+          {closeShow && <button className="alert-close-btn" onClick={() => { setShow(false) }}>
+            {closeText ? closeText : <CloseOutlined />}
+          </button>}
+        </div>}
+        {/* 包含description的样式 */}
+        {description && <div className="alert-description-context">
+          <span className="alert-description-context-message">
+            {message}
+          </span>
+          {/* 关闭按钮 */}
+          {closeShow && <button className="alert-close-btn" onClick={() => { setShow(false) }}>
+            {closeText ? closeText : <CloseOutlined />}
+          </button>}
+          <p className="alert-description-context-description">
+            {description}
+          </p>
+        </div>}
+      </div>}
+    </>
   )
 }
 
