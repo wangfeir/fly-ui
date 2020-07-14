@@ -1,28 +1,41 @@
 import React from 'react'
 import classNames from 'classnames'
-
-export enum AlertType{
-  Success="success",
-  Info="info",
-  Warning="warning",
-  Error="error",
+// import { AntDesignOutline, DashboardOutline, TwitterOutline } from '@ant-design/icons';
+// import AntdIcon from '@ant-design/icons-react';
+// AntdIcon.add(AntDesignOutline, DashboardOutline);
+import { CloseOutlined } from '@ant-design/icons';
+export enum AlertType {
+  Success = "success",
+  Info = "info",
+  Warning = "warning",
+  Error = "error",
 }
 
 
-interface AlertProps{
-  type:string,
-  message:string
+interface AlertProps {
+  type: string,
+  message: string,
+  closable?: boolean,
+  closeText?:string
 }
 
-const Alert:React.FC<AlertProps> = (props) =>{
+const Alert: React.FC<AlertProps> = (props) => {
   const {
     type,
-    message
+    message,
+    closable,
+    closeText
   } = props
-  const classes = classNames('alert',{[`alert-${type}`]:type})
-  return(
+  const classes = classNames('alert', { [`alert-${type}`]: type, [`alert-${closable}`]: closable })
+  const closeShow = closable||closeText
+  return (
     <div className={classes}>
-      {message}
+      <p>
+        {message}
+      </p>
+      {closeShow && <button className="alert-close-btn">
+        {closeText?closeText:<CloseOutlined />}
+      </button>}
     </div>
   )
 }

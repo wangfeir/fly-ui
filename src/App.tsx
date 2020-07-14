@@ -43,10 +43,11 @@ function App() {
       </div>
 
       <div>
-      <Alert message="Success Text" type="success" />
-    <Alert message="Info Text" type="info" />
-    <Alert message="Warning Text" type="warning" />
-    <Alert message="Error Text" type="error" />
+      <Alert message="Success Text" type="success"  closeText="close btn"/>
+      <Alert message="Success Text" type="success" closable />
+      <Alert message="Info Text" type="info" />
+      <Alert message="Warning Text" type="warning" />
+      <Alert message="Error Text" type="error" />
       </div>
     </div>
   );

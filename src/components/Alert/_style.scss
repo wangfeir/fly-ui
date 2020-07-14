@@ -1,11 +1,12 @@
 .alert{
+  position: relative;
   padding: $alert-padding-x $alert-padding-y;
   margin-bottom: 1rem;
   font-size: $font-size-base;
   color: $body-color;
   background-image: none;
   text-align: left;
-
+  line-height: $line-height-base;
   border: $alert-border-width solid transparent;
 }
 
@@ -22,3 +23,21 @@
   @include alert-style($alert-background-info,$alert-bordercolor-info)
 }
 
+.alert-close-btn{
+  position: absolute;
+  right: 1rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: .8rem;
+  text-align: center;
+  display: inline-block;
+  color: $gray-600;
+  top:$alert-padding-x;
+  transition: color .3s;
+  &:hover,&:focus{
+    color: $gray-700;
+  }
+  
+}

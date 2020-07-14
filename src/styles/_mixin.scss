@@ -20,6 +20,7 @@
     background-color:$hover-background;
     border-color:$hover-border;
   }
+
   &.disabled,&[disabled]{
     color: $gray-600;
     background-color: $gray-200;
