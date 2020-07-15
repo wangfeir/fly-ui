@@ -41,3 +41,8 @@
   background-color: $background-color;
   border-color: $border-color,;
 }
+@mixin alert-icon-style($color,$font-size){
+  color: $color;
+  font-size:$font-size;
+
+}

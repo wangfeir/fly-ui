@@ -45,12 +45,25 @@ function App() {
       <div>
       <Alert message="Success Text" type="success"  closeText="close btn"/>
       <Alert message="Success Text" type="success" closable />
-      <Alert message="Info Text" type="info" />
+      <Alert showIcon message="Info Text" type="info"  />
       <Alert message="Warning Text" type="warning" />
-      <Alert message="Error Text" type="error" />
+      <Alert showIcon message="Error Text" type="error" />
       <Alert message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" />
-      <Alert message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" closable/>
-      <Alert message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" closable/>
+      <Alert closable showIcon message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error"/>
+      <Alert closable message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" />
+      
+      <Alert showIcon message="Info Text" type="info"  />
+      <Alert showIcon type="info" message="Info Text"  description="info context" />
+
+      <Alert showIcon type="success" message="Success Text" closable />
+      <Alert showIcon type="success"  message="Success Text" description="Success context" closable />
+      
+      <Alert showIcon type="error" message="error Text" closable />
+      <Alert showIcon type="error"  message="error Text" description="error context" closable />
+      
+      <Alert showIcon type="warning" message="warning Text" closable />
+      <Alert showIcon type="warning"  message="warning Text" description="warning context" closable />
+      
       </div>
     </div>
   );
