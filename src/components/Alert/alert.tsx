@@ -52,7 +52,7 @@ const Alert: React.FC<AlertProps> = (props) => {
           </span>
           {/* 关闭按钮 */}
           {closeShow && <button className="alert-close-btn" onClick={() => { setShow(false) }}>
-            {closeText ? closeText : <CloseOutlined />}
+            {closeText ? closeText :<CloseOutlined style={{'fontSize':'.8rem'}}/>}
           </button>}
         </div>}
         {/* 包含description的样式 */}
@@ -62,7 +62,7 @@ const Alert: React.FC<AlertProps> = (props) => {
           </span>
           {/* 关闭按钮 */}
           {closeShow && <button className="alert-close-btn" onClick={() => { setShow(false) }}>
-            {closeText ? closeText : <CloseOutlined />}
+            {closeText ? closeText : <CloseOutlined style={{'fontSize':'.8rem'}}/>}
           </button>}
           <p className="alert-description-context-description">
             {description}

@@ -13,7 +13,7 @@ export enum ButtonSize {
   Small = "small",
 }
 
-interface BaseButtonProps {
+export interface BaseButtonProps {
   className?: string;
   btnType?: ButtonType;
   size?: ButtonSize;

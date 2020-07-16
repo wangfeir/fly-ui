@@ -20,6 +20,11 @@
     background-color:$hover-background;
     border-color:$hover-border;
   }
+  &:focus{
+    color: $hover-color;
+    background-color:$hover-background;
+    border-color:$hover-border;
+  }
 
   &.disabled,&[disabled]{
     color: $gray-600;

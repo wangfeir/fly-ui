@@ -33,7 +33,7 @@ function App() {
       </header>
       <div>
       <Button disabled>ButtonSize.Middle</Button>
-        <Button className={`ccdd`} size={ButtonSize.Large} onClick={()=>{alert(123123213)}}>ButtonSize.Large</Button>
+        <Button size={ButtonSize.Large} onClick={()=>{alert(123123213)}}>ButtonSize.Large</Button>
         <Button size={ButtonSize.Small}>ButtonSize.Small</Button>
         <Button btnType={ButtonType.Danger}>ButtonType.Danger</Button>
         <Button btnType={ButtonType.Default}>ButtonType.Default</Button>
