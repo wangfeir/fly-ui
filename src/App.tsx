@@ -43,12 +43,12 @@ function App() {
       </div>
 
       <div>
-      <Alert message="Success Text" type="success"  closeText="close btn"/>
+      <Alert message="Success Text" id="11111" type="success"  closeText="close btn"/>
       <Alert message="Success Text" type="success" closable />
       <Alert showIcon message="Info Text" type="info"  />
       <Alert message="Warning Text" type="warning" />
       <Alert showIcon message="Error Text" type="error" />
-      <Alert message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" />
+      <Alert closeText="close btn" message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" />
       <Alert closable showIcon message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error"/>
       <Alert closable message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" />
       

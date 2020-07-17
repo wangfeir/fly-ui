@@ -1,6 +1,8 @@
 import React from 'react'
-import {render,fireEvent} from '@testing-library/react'
-import Button ,{ ButtonProps,ButtonType,ButtonSize }from './button'
+// @testing-library/jest-dom 必须升级到最新版 否则 找不到fireEvent
+import { render, fireEvent } from '@testing-library/react';
+
+import Button, { ButtonProps, ButtonType, ButtonSize } from './button'
 
 
 // test('our first react test case',()=>{
@@ -11,24 +13,24 @@ import Button ,{ ButtonProps,ButtonType,ButtonSize }from './button'
 //   // toBeInTheDocument 判定元素是否存在
 //   expect(element).toBeInTheDocument()
 // })
-const testProps :ButtonProps = {
-  btnType:ButtonType.Primary,
-  size:ButtonSize.Large,
-  className:'custom'
-} 
-const testLink :ButtonProps ={
-  btnType:ButtonType.Link,
-  size:ButtonSize.Small,
-  href:'http://www.baidu.com'
-} 
-const testDisabled :ButtonProps ={
+const testProps: ButtonProps = {
+  btnType: ButtonType.Primary,
+  size: ButtonSize.Large,
+  className: 'custom'
+}
+const testLink: ButtonProps = {
+  btnType: ButtonType.Link,
+  size: ButtonSize.Small,
+  href: 'http://www.baidu.com'
+}
+const testDisabled: ButtonProps = {
   btnType: ButtonType.Danger,//'danger',
-  size:ButtonSize.Middle,   //'middle',
-  disabled:true,
-  onClick:jest.fn()
-} 
-describe('tes Button component',()=>{
-  it('should render the correct default button',()=>{
+  size: ButtonSize.Middle,   //'middle',
+  disabled: true,
+  onClick: jest.fn()
+}
+describe('tes Button component', () => {
+  it('should render the correct default button', () => {
     const wrapper = render(<Button>Nice</Button>);
     const element = wrapper.getByText('Nice');
     expect(element).toBeInTheDocument();
@@ -38,29 +40,28 @@ describe('tes Button component',()=>{
     expect(element).toHaveClass('btn btn-default')
   })
 
-  it('should render the correct component based on different props',()=>{
+  it('should render the correct component based on different props', () => {
     const wrapper = render(<Button {...testProps}>Nice</Button>)
     const element = wrapper.getByText('Nice');
     // 判定该元素是否存在
     expect(element).toBeInTheDocument()
     // 判定元素是否包含以下class
     expect(element).toHaveClass('btn btn-primary btn-large custom')
-  
+
   })
   // 检测一个link的btn并且存在href
-  it('should render a link  when benType equals link and href is provided',()=>{
+  it('should render a link  when benType equals link and href is provided', () => {
     const wrapper = render(<Button {...testLink}>Link</Button>)
     const element = wrapper.getByText('Link');
 
     expect(element).toBeInTheDocument();
     expect(element.tagName).toEqual('A');
-    // 判定元素是否包含href的属性的两种方式
+    // 判定元素是否包含href的属性的方式
     expect(element).toHaveAttribute('href');
-    expect(element.href).toBeTruthy()
     expect(element).toHaveClass('btn btn-link')
   })
 
-  it('should render disabled button when disabled set to true',()=>{
+  it('should render disabled button when disabled set to true', () => {
     const wrapper = render(<Button {...testDisabled}>disabled</Button>)
     const element = wrapper.getByText('disabled');
     expect(element).toBeInTheDocument();

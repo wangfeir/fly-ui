@@ -7,23 +7,63 @@
 	text-align: left;
 	line-height: $line-height-base;
 	border: $alert-border-width solid transparent;
-	// transition: $btn-transition;
-	.alert-default-context-showIcon{
+	.alert-icon{
     padding:$alert-padding-x $alert-padding-y $alert-padding-x 2rem ;
 	}
-	.alert-default-context-notShowIcon{
+	.alert-icon-not{
 		padding: $alert-padding-x $alert-padding-y;
-
-
 	}
-	.alert-description-context-notShowIcon {
-    padding:1rem;
+	.alert-icon-box{
+		position: absolute;
+		top: 0.7rem;
+		line-height: 0;
+		left: 0.8rem;
 	}
-	.alert-description-context-showIcon {
-    padding:1rem 1rem 1rem 4rem;
-
+	// alert 普通类型 有icon 内容样式
+	&.alert-icon{
+		.alert-context{
+			padding:$alert-padding-x $alert-padding-y $alert-padding-x 2rem ;
+		}
+	}
+	// alert 普通类型 无icon 内容样式
+	&.alert-icon-not{
+		.alert-context{
+			padding: $alert-padding-x $alert-padding-y;
+		}
 	}
 }
+.alert-description{
+	// alert 有description 有icon 内容样式
+	&.alert-icon{
+		.alert-context{
+			padding:1rem 1rem 1rem 4rem;
+		}
+	}
+	// alert 有description 无icon 内容样式
+	&.alert-icon-not{
+		.alert-context{
+			padding:1rem;
+		}
+	}
+	.alert-icon-box{
+		position: absolute;
+		top: 1rem;
+		left: 1.5rem;
+	}
+	.alert-message {
+		font-size: 1rem;
+    line-height: 1.5rem;
+    display: block;
+		margin-bottom: 4px;
+	}
+	.alert-description {
+		font-size: .8rem;
+		color: $gray-700;
+		line-height: 1.2rem;
+		margin: 0;
+	}
+}
+
 
 .alert-success {
 	@include alert-style($alert-background-success,$alert-bordercolor-success);
@@ -33,55 +73,72 @@
 }
 .alert-warning {
 	@include alert-style($alert-background-warning,$alert-bordercolor-warning);
+
 }
 .alert-info {
 	@include alert-style($alert-background-info,$alert-bordercolor-info);
 }
-
-.alert-close-btn {
-	position: absolute;
-	right: 1rem;
-	padding: 0;
-	border: none;
-	background: none;
-	outline: none !important;
-	// line-height: 0;
-	cursor: pointer;
-	font-size: 0;
-	text-align: center;
-	display: inline-block;
-	color: $gray-600;
-	top: .7rem;
-	transition: color .3s;
-	&:hover,
-	&:focus {
-		color: $gray-700;
-	}
-}
-.alert-description-context {
-	.alert-description-context-message {
-		font-size: 1rem;
-    line-height: 1.5rem;
-    display: block;
-		margin-bottom: 4px;
-	}
-	.alert-description-context-description {
-		font-size: .8rem;
-		color: $gray-700;
-		line-height: 1.2rem;
-		margin: 0;
+.alert-close{
+	.close-btn {
+		position: absolute;
+		right: 1rem;
+		padding: 0;
+		border: none;
+		background: none;
+		outline: none !important;
+		// line-height: 0;
+		cursor: pointer;
+		font-size: 0;
+		text-align: center;
+		display: inline-block;
+		color: $gray-600;
+		top: .7rem;
+		transition: color .3s;
+		&:hover,
+		&:focus {
+			color: $gray-700;
+		}
 	}
 	
 }
-.alert-icon{
-	position: absolute;
-	top: 0.7rem;
-	line-height: 0;
-	left: 0.8rem;
-	&.alert-icon-description{
+.alert-close-text{
+	.close-btn{
 		position: absolute;
-		top: 1rem;
-		left: 1.5rem;
+		right: 1rem;
+		padding: 0;
+		border: none;
+		background: none;
+		outline: none !important;
+		// line-height: 0;
+		cursor: pointer;
+		text-align: center;
+		display: inline-block;
+		color: $gray-600;
+		top: .5rem;
+		transition: color .3s;
+		&:hover,
+		&:focus {
+			color: $gray-700;
+		}
+		font-size: 0.8rem;
 	}
 }
+
+
+// .alert-description {
+// 	.alert-description-context-message {
+// 		font-size: 1rem;
+//     line-height: 1.5rem;
+//     display: block;
+// 		margin-bottom: 4px;
+// 	}
+// 	.alert-description-context-description {
+// 		font-size: .8rem;
+// 		color: $gray-700;
+// 		line-height: 1.2rem;
+// 		margin: 0;
+// 	}
+	
+// }
+
 

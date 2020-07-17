@@ -13,7 +13,7 @@ export enum ButtonSize {
   Small = "small",
 }
 
-export interface BaseButtonProps {
+ interface BaseButtonProps {
   className?: string;
   btnType?: ButtonType;
   size?: ButtonSize;
@@ -24,7 +24,7 @@ export interface BaseButtonProps {
 // React.ButtonHTMLAttributes 是typescript
 type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
 type anchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
-type ButtonProps = Partial<NativeButtonProps&anchorButtonProps>
+export type ButtonProps = Partial<NativeButtonProps&anchorButtonProps>
 const Button: React.FC<ButtonProps> = (props) => {
   const {
     // className,
