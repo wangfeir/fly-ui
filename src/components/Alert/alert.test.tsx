@@ -1,18 +1,25 @@
 import React from 'react';
-import { render ,fireEvent} from '@testing-library/react'
-import Alert,{AlertProps} from './alert'
+import { render, fireEvent } from '@testing-library/react'
+import Alert, { AlertProps } from './alert'
 
-const testDefaultProps:AlertProps={
-  message:"Success Text",
-  type:"success",
-  closable:true,
-  showIcon:true,
-  closeText:'close btn text'
+const testDefaultProps: AlertProps = {
+  message: "Success Text",
+  type: "success",
+  closable: true,
+  showIcon: true,
+  closeText: 'close btn text'
 }
-describe('test Alert component',()=>{
-  it('should render the default alert',()=>{
+const testDescriptionProps:AlertProps = {
+  message: "warning Text",
+  type: "warning",
+  showIcon:true,
+  description:'description text'
+
+}
+describe('test Alert component', () => {
+  it('should render the default alert', () => {
     // 在元素上添加一个 data-testid
-    const wrapper = render(<Alert data-testid="defalut" message="defalut Text"/>);
+    const wrapper = render(<Alert data-testid="defalut" message="defalut Text" />);
     // 使用 getByTestId 方法获取该 data-testid
     const element = wrapper.getByTestId('defalut');
     const elementText = wrapper.getByText('defalut Text');
@@ -22,8 +29,8 @@ describe('test Alert component',()=>{
 
   })
 
-  it('should render the default alert on different props',()=>{
-    const wrapper = render(<Alert data-testid="diffProps" {...testDefaultProps}/>);
+  it('should render the default alert on different props', () => {
+    const wrapper = render(<Alert data-testid="diffProps" {...testDefaultProps} />);
     const element = wrapper.getByTestId('diffProps');
     // 查找关闭按钮
     const closeElement = wrapper.getByText('close btn text');
@@ -34,4 +41,16 @@ describe('test Alert component',()=>{
     expect(element).not.toBeInTheDocument()
   })
 
+  it('should render the default alert on description',()=>{
+    const wrapper = render(<Alert data-testid="descriptionCont" {...testDescriptionProps}/>)
+    const element = wrapper.getByTestId('descriptionCont');
+    const elementDescription = wrapper.getByText('description text');
+    const elementMessage= wrapper.getByText('warning Text');
+    // const elementDescription = wrapper.getByText('description text');
+
+    expect(element).toBeInTheDocument()
+    expect(element).toHaveClass('alert alert-warning alert-icon')
+    expect(elementDescription).toBeInTheDocument()
+    expect(elementMessage).toBeInTheDocument()
+  })
 })

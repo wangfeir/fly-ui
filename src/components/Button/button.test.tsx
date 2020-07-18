@@ -69,7 +69,7 @@ describe('tes Button component', () => {
 
     // 判定disabled是否生效 两种方式都可以
     expect(element).toBeDisabled();
-    expect(element.disabled).toBeTruthy();
+    // expect(element.disabled).toBeTruthy();
     fireEvent.click(element)
     // toHaveBeenCalled 判定事件是否被执行 
     expect(testDisabled.onClick).not.toHaveBeenCalled();
