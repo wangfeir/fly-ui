@@ -1,6 +1,9 @@
 import React from 'react';
 import Button,{ButtonType,ButtonSize} from './components/Button/button'
 import Alert from './components/Alert/alert'
+import MentItem from './components/Menu/menuItem'
+import Menu from './components/Menu/menu';
+
 function App() {
   const a ='123'
   if(a==='123'){}
@@ -31,7 +34,25 @@ function App() {
 
        
       </header>
+        <Menu defaultIndex={0}>
+          <MentItem>
+            itme 1
+          </MentItem>
+          <MentItem>
+            itme 2
+          </MentItem>
+          <MentItem>
+            itme 3
+          </MentItem>
+        </Menu>
+
+
+
+
+
       <div>
+
+
       <Button disabled>ButtonSize.Middle</Button>
         <Button size={ButtonSize.Large} onClick={()=>{alert(123123213)}}>ButtonSize.Large</Button>
         <Button size={ButtonSize.Small}>ButtonSize.Small</Button>
