@@ -35,13 +35,13 @@ function App() {
        
       </header>
         <Menu defaultIndex={0}>
-          <MentItem>
+          <MentItem index={0} disabled>
             itme 1
           </MentItem>
-          <MentItem>
+          <MentItem index={1}>
             itme 2
           </MentItem>
-          <MentItem>
+          <MentItem index={2}>
             itme 3
           </MentItem>
         </Menu>
