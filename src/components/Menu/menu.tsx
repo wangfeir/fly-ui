@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 type MenuMode = "vertical" | "horizontal" | "inline" // 支持垂直、水平、和内嵌模式
 type SelectCallBack = (selectedIndex: number) => void
-interface MenuProps {
+export interface MenuProps {
   className?: string;
   mode?: MenuMode;
   style?: React.CSSProperties;
@@ -25,7 +25,8 @@ const Menu: React.FC<MenuProps> = (props) => {
     style,
     defaultIndex,
     onSelect,
-    children
+    children,
+    ...restProps
   } = props
   const classes = classNames('fly-menu', className, { [`menu-${mode}`]: mode });
   const [currentActive, setActive] = useState(defaultIndex)
@@ -45,7 +46,7 @@ const Menu: React.FC<MenuProps> = (props) => {
   return (
     // 使用 .Provider 向子元素传递参数
     <MenuConetxt.Provider value={passContext}>
-      <ul style={style} className={classes}>
+      <ul style={style} className={classes}  {...restProps}>
         {children}
       </ul>
     </MenuConetxt.Provider>

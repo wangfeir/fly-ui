@@ -16,7 +16,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
   const classes = classNames('menu-item', className,
     {
       [`is-disabled`]: disabled,
-      [`active`]: context.index === index,
+      [`active`]: context.index === index&&!disabled,
     })
     // 列表元素点击时触发父元素回调函数
   const handleClick = () => {

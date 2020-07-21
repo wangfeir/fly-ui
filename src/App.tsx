@@ -34,7 +34,7 @@ function App() {
 
        
       </header>
-        <Menu defaultIndex={0}>
+        <Menu  defaultIndex={0} onSelect={(index)=>{console.log(index)}} style={{ width: 256 }}>
           <MentItem index={0} disabled>
             itme 1
           </MentItem>
