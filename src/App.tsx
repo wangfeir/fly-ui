@@ -1,12 +1,12 @@
 import React from 'react';
-import Button,{ButtonType,ButtonSize} from './components/Button/button'
+import Button, { ButtonType, ButtonSize } from './components/Button/button'
 import Alert from './components/Alert/alert'
 import MentItem from './components/Menu/menuItem'
 import Menu from './components/Menu/menu';
-
+import SubMenu from './components/Menu/subMenu'
 function App() {
-  const a ='123'
-  if(a==='123'){}
+  const a = '123'
+  if (a === '123') { }
   return (
     <div className="App">
       <header className="App-header">
@@ -32,20 +32,43 @@ function App() {
           Learn React
         </a> */}
 
-       
+
       </header>
-        <Menu  defaultIndex={0} onSelect={(index)=>{console.log(index)}} style={{ width: 256 }}>
-          <MentItem index={0} disabled>
+      <Menu defaultIndex={0} onSelect={(index) => { console.log(index) }} style={{ width: 856 }}>
+        <SubMenu title='itme 1' >
+          <MentItem disabled>
             itme 1
           </MentItem>
-          <MentItem index={1}>
+          <MentItem >
             itme 2
           </MentItem>
-          <MentItem index={2}>
+          <MentItem>
             itme 3
           </MentItem>
-        </Menu>
-
+        </SubMenu>
+        <MentItem  disabled>
+          itme 1
+          </MentItem>
+        <MentItem >
+          itme 2
+          </MentItem>
+        <MentItem >
+          itme 3
+          </MentItem>
+        {/* <p>aaa</p> */}
+      </Menu>
+      <Menu defaultIndex={0} onSelect={(index) => { console.log(index) }} style={{ width: 256 }}>
+        <MentItem  disabled>
+          itme 1
+          </MentItem>
+        <MentItem >
+          itme 2
+          </MentItem>
+        <MentItem >
+          itme 3
+          </MentItem>
+        {/* <p>aaa</p> */}
+      </Menu>
 
 
 
@@ -53,8 +76,8 @@ function App() {
       <div>
 
 
-      <Button disabled>ButtonSize.Middle</Button>
-        <Button size={ButtonSize.Large} onClick={()=>{alert(123123213)}}>ButtonSize.Large</Button>
+        <Button disabled>ButtonSize.Middle</Button>
+        <Button size={ButtonSize.Large} onClick={() => { alert(123123213) }}>ButtonSize.Large</Button>
         <Button size={ButtonSize.Small}>ButtonSize.Small</Button>
         <Button btnType={ButtonType.Danger}>ButtonType.Danger</Button>
         <Button btnType={ButtonType.Default}>ButtonType.Default</Button>
@@ -64,27 +87,27 @@ function App() {
       </div>
 
       <div>
-      <Alert message="Success Text" id="11111" type="success"  closeText="close btn"/>
-      <Alert message="Success Text" type="success" closable />
-      <Alert showIcon message="Info Text" type="info"  />
-      <Alert message="Warning Text" type="warning" />
-      <Alert showIcon message="Error Text" type="error" />
-      <Alert closeText="close btn" message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" />
-      <Alert closable showIcon message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error"/>
-      <Alert closable message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" />
-      
-      <Alert showIcon message="Info Text" type="info"  />
-      <Alert showIcon type="info" message="Info Text"  description="info context" />
+        <Alert message="Success Text" id="11111" type="success" closeText="close btn" />
+        <Alert message="Success Text" type="success" closable />
+        <Alert showIcon message="Info Text" type="info" />
+        <Alert message="Warning Text" type="warning" />
+        <Alert showIcon message="Error Text" type="error" />
+        <Alert closeText="close btn" message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" />
+        <Alert closable showIcon message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" />
+        <Alert closable message="Error Text" description="Error contextError contextError contextError contextError contextError contextError context" type="error" />
 
-      <Alert showIcon type="success" message="Success Text" closable />
-      <Alert showIcon type="success"  message="Success Text" description="Success context" closable />
-      
-      <Alert showIcon type="error" message="error Text" closable />
-      <Alert showIcon type="error"  message="error Text" description="error context" closable />
-      
-      <Alert showIcon type="warning" message="warning Text" closable />
-      <Alert showIcon type="warning"  message="warning Text" description="warning context" closable />
-      
+        <Alert showIcon message="Info Text" type="info" />
+        <Alert showIcon type="info" message="Info Text" description="info context" />
+
+        <Alert showIcon type="success" message="Success Text" closable />
+        <Alert showIcon type="success" message="Success Text" description="Success context" closable />
+
+        <Alert showIcon type="error" message="error Text" closable />
+        <Alert showIcon type="error" message="error Text" description="error context" closable />
+
+        <Alert showIcon type="warning" message="warning Text" closable />
+        <Alert showIcon type="warning" message="warning Text" description="warning context" closable />
+
       </div>
     </div>
   );

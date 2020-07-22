@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import classNames from 'classnames'
 import Menu, { MenuConetxt } from './menu'
 export interface MenuItemProps {
-  index: number,
+  index?: number,
   disabled?: boolean,
   className?: string,
   style?: React.CSSProperties
@@ -20,11 +20,11 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     })
     // 列表元素点击时触发父元素回调函数
   const handleClick = () => {
-    if (context.onSelect && !disabled) {
+    if (context.onSelect && !disabled&&typeof index ==='number') {
       context.onSelect(index)
     }
   }
-  console.log('context', context, index)
+  // console.log('context', context, index)
   return (
     <li className={classes} style={style} onClick={handleClick}>
       {children}
@@ -32,4 +32,6 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
   )
 
 }
+MenuItem.displayName = 'MenuItem'
+
 export default MenuItem
