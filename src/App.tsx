@@ -57,10 +57,18 @@ function App() {
           </MentItem>
         {/* <p>aaa</p> */}
       </Menu>
-      <Menu defaultIndex={0} onSelect={(index) => { console.log(index) }} style={{ width: 256 }}>
-        <MentItem  disabled>
-          itme 1
+      <Menu mode="vertical" defaultIndex={0} onSelect={(index) => { console.log(index) }} style={{ width: 256 }}>
+      <SubMenu title='itme 1' >
+          <MentItem disabled>
+            child itme 1
           </MentItem>
+          <MentItem >
+          child itme 2
+          </MentItem>
+          <MentItem>
+          childitme 3
+          </MentItem>
+        </SubMenu>
         <MentItem >
           itme 2
           </MentItem>

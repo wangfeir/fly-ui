@@ -9,9 +9,9 @@
 	.menu-item {
 		padding: $menu-item-padding-y $menu-item-padding-x;
 		cursor: pointer;
-    transition: $menu-transition;
-    margin-bottom: -$menu-border-width;
-    border-bottom: $menu-item-active-border-width solid  transparent;
+		transition: $menu-transition;
+		margin-bottom: -$menu-border-width;
+		border-bottom: $menu-item-active-border-width solid transparent;
 		&:hover,
 		&:focus {
 			text-decoration: none;
@@ -24,28 +24,68 @@
 		&.active,
 		&:hover {
 			color: $menu-item-active-color;
-			border-bottom: $menu-item-active-border-width solid  $menu-item-active-color;
+			border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
 		}
 	}
 }
-.menu-vertical{
-  flex-direction: column;
-  border-bottom:none;
-  box-shadow:none;
+.menu-vertical {
+	flex-direction: column;
+	border-bottom: none;
+	box-shadow: none;
 	border-right: $menu-border-width solid $menu-border-color;
 	.menu-item {
-    border-bottom:none;
-    border-left: $menu-item-active-border-width solid  transparent;
-    &.active,&:hover{
-      border-bottom: 0px;
-			border-left: $menu-item-active-border-width solid  $menu-item-active-color;
-    }
-  }
-
+		border-bottom: none;
+		border-left: $menu-item-active-border-width solid transparent;
+		&.active,
+		&:hover {
+			border-bottom: 0px;
+			border-left: $menu-item-active-border-width solid $menu-item-active-color;
+		}
+	}
 }
-.fly-submenu{
-	padding-left: 0;
-	.menu-item{
-		list-style: none;
+.menu-horizontal {
+	.menu-submenu {
+		position: relative;
+		&::after {
+			position: absolute;
+			display: block;
+			top: calc(100%);
+			height: 6px;
+			left: 0;
+			right: 0;
+			content: '';
+		}
+		.fly-submenu {
+			display: none;
+			position: absolute;
+			background: $white;
+			z-index: 100;
+			top: calc(100% + 8px);
+			left: 0;
+			right: -5px;
+			border: $menu-border-width solid $menu-border-color;
+			padding-left: 0;
+			transform: translateY(-2px);
+
+			.menu-item {
+				list-style: none;
+
+				color: $body-color;
+				&:hover {
+					color: $menu-item-active-color;
+					border-bottom-color: transparent;
+				}
+				&.is-disabled {
+					color: $menu-item-disabled-color;
+					pointer-events: none;
+					cursor: default;
+				}
+			}
+		}
+		&:hover {
+			.fly-submenu {
+				display: block;
+			}
+		}
 	}
 }
