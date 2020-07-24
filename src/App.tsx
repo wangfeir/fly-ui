@@ -34,10 +34,10 @@ function App() {
 
 
       </header>
-      <Menu defaultIndex={0} onSelect={(index) => { console.log(index) }} style={{ width: 856 }}>
+      <Menu onSelect={(index) => { console.log(index) }} style={{ width: 856 }}>
         <SubMenu title='itme 1' >
           <MentItem disabled>
-            itme 1
+            itme 1itme 1itme 1itme 1itme 1
           </MentItem>
           <MentItem >
             itme 2
@@ -46,7 +46,7 @@ function App() {
             itme 3
           </MentItem>
         </SubMenu>
-        <MentItem  disabled>
+        <MentItem disabled>
           itme 1
           </MentItem>
         <MentItem >
@@ -55,26 +55,33 @@ function App() {
         <MentItem >
           itme 3
           </MentItem>
-        {/* <p>aaa</p> */}
       </Menu>
-      <Menu mode="vertical" defaultIndex={0} onSelect={(index) => { console.log(index) }} style={{ width: 256 }}>
-      <SubMenu title='itme 1' >
-          <MentItem disabled>
-            child itme 1
-          </MentItem>
-          <MentItem >
-          child itme 2
-          </MentItem>
-          <MentItem>
-          childitme 3
-          </MentItem>
+      <Menu mode="vertical" onSelect={(index) => { console.log(index) }} style={{ width: 256 }}>
+        <SubMenu title='itme 1' key="3">
+          <MentItem disabled key="1">1-1</MentItem>
+          <MentItem  key="2">1-2</MentItem>
+            <SubMenu title='1-3' >
+              <MentItem disabled>
+                1-3-1
+              </MentItem>
+              <MentItem >
+                1-3-2
+              </MentItem>
+              <SubMenu title='1-3-3' >
+              <MentItem disabled>
+                1-3-3-1
+              </MentItem>
+              <MentItem >
+              1-3-3-1
+              </MentItem>
+              <MentItem>
+              1-3-3-1
+              </MentItem>
+            </SubMenu>
+            </SubMenu>
         </SubMenu>
-        <MentItem >
-          itme 2
-          </MentItem>
-        <MentItem >
-          itme 3
-          </MentItem>
+        <MentItem key="1" >itme 2</MentItem>
+        <MentItem key="2" >itme 3</MentItem>
         {/* <p>aaa</p> */}
       </Menu>
 

@@ -1,27 +1,28 @@
 import React, { useContext, useState, createContext } from 'react'
 import classNames from 'classnames'
 import { MenuItemProps } from './menuItem'
-type MenuMode = "vertical" | "horizontal" | "inline" // 支持垂直、水平、和内嵌模式
-type SelectCallBack = (selectedIndex: number) => void
+export type MenuMode = "vertical" | "horizontal" | "inline" // 支持垂直、水平、和内嵌模式
+type SelectCallBack = (selectedIndex: string) => void
 export interface MenuProps {
   className?: string;
   mode?: MenuMode;
   style?: React.CSSProperties;
-  defaultIndex: number;
+  defaultIndex?: string
   onSelect?: SelectCallBack;
 }
 
 interface IMenuContext {
-  index: number;
+  index: string;
+  mode?: MenuMode;
   onSelect?: SelectCallBack;
 
 }
 // 创建Context 用来向子元素传递参数
-export const MenuConetxt = createContext<IMenuContext>({ index: 0 })
+export const MenuConetxt = createContext<IMenuContext>({ index: '0' })
 const Menu: React.FC<MenuProps> = (props) => {
   const {
     className,
-    mode,
+    mode='horizontal',
     style,
     defaultIndex,
     onSelect,
@@ -32,7 +33,7 @@ const Menu: React.FC<MenuProps> = (props) => {
   const [currentActive, setActive] = useState(defaultIndex)
 
   // 子元素点击时触发的回调函数
-  const handleClick = (index: number) => {
+  const handleClick = (index: string) => {
     setActive(index);
     if (onSelect) {
       onSelect(index);
@@ -40,7 +41,8 @@ const Menu: React.FC<MenuProps> = (props) => {
   }
   // 向子元素传递的值
   const passContext: IMenuContext = {
-    index: currentActive ? currentActive : 0,
+    index: currentActive ? currentActive : '0',
+    mode:mode,
     onSelect: handleClick,
   }
 
@@ -49,9 +51,11 @@ const Menu: React.FC<MenuProps> = (props) => {
     return React.Children.map(children, (child, index) => {
       const childElement = child as React.FunctionComponentElement<MenuItemProps>
       const { displayName } = childElement.type;
+      console.log('indexxxxxx',mode)
+
       if (displayName === 'MenuItem'||displayName === 'SubMenu') {
         // 使用cloneElement方法给子元素传递参数 
-        return  React.cloneElement(childElement,{index}) 
+        return  React.cloneElement(childElement,{index:index.toString(),mode:mode}) 
       } else {
         console.error('warning：Menu child is not MenuItem!')
       }
@@ -70,7 +74,7 @@ const Menu: React.FC<MenuProps> = (props) => {
   )
 }
 Menu.defaultProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   mode: 'horizontal'
 }
 export default Menu;
