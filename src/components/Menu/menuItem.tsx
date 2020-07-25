@@ -7,11 +7,12 @@ export interface MenuItemProps {
   mode?: MenuMode;
   className?: string,
   stratumNum?: number,  // 当前的层级数
-  style?: React.CSSProperties
+  style?: React.CSSProperties,
+  icon?:React.ReactNode;
 }
 
 const MenuItem: React.FC<MenuItemProps> = (props) => {
-  const { index, disabled, className, style, children, stratumNum } = props
+  const { index, disabled, className, style, children, icon,stratumNum } = props
   // 接收父元素传递进来的参数
   const context = useContext(MenuConetxt);
   // const [hoverStatus,setHoverStatus] = useState(false)
@@ -26,6 +27,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
   // console.log('index', index)
   const handleClick = () => {
     if (context.onSelect && !disabled && typeof index === 'string') {
+      console.log('index-click',index)
       context.onSelect(index)
     }
   }
@@ -33,7 +35,8 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
   // onmouseenter
   return (
     <li className={classes} style={style} onClick={handleClick}>
-      {children}
+      <span className="menuitem-icon">{icon}</span>
+      <span className="menuitem-text">{children}</span>
     </li>
   )
 

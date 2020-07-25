@@ -51,7 +51,7 @@ const Menu: React.FC<MenuProps> = (props) => {
     return React.Children.map(children, (child, index) => {
       const childElement = child as React.FunctionComponentElement<MenuItemProps>
       const { displayName } = childElement.type;
-      console.log('indexxxxxx',mode)
+      // console.log('indexxxxxx',mode)
 
       if (displayName === 'MenuItem'||displayName === 'SubMenu') {
         // 使用cloneElement方法给子元素传递参数 

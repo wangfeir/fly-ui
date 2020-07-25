@@ -4,6 +4,8 @@ import Alert from './components/Alert/alert'
 import MentItem from './components/Menu/menuItem'
 import Menu from './components/Menu/menu';
 import SubMenu from './components/Menu/subMenu'
+import {PieChartOutlined } from '@ant-design/icons';
+
 function App() {
   const a = '123'
   if (a === '123') { }
@@ -34,19 +36,19 @@ function App() {
 
 
       </header>
-      <Menu onSelect={(index) => { console.log(index) }} style={{ width: 856 }}>
-        <SubMenu title='itme 1' >
+      <Menu onSelect={(index) => { console.log(index) }} defaultIndex="2" style={{ width: 856 }}>
+        <SubMenu title='itme 1' icon={<PieChartOutlined />}>
           <MentItem disabled>
             itme 1itme 1itme 1itme 1itme 1
           </MentItem>
-          <MentItem >
+          <MentItem icon={<PieChartOutlined />}>
             itme 2
           </MentItem>
           <MentItem>
             itme 3
           </MentItem>
         </SubMenu>
-        <MentItem disabled>
+        <MentItem disabled >
           itme 1
           </MentItem>
         <MentItem >
@@ -57,7 +59,7 @@ function App() {
           </MentItem>
       </Menu>
       <Menu mode="vertical" onSelect={(index) => { console.log(index) }} style={{ width: 256 }}>
-        <SubMenu title='itme 1' key="3">
+        <SubMenu title='itme 1' key="3"  icon={<PieChartOutlined />}>
           <MentItem disabled key="1">1-1</MentItem>
           <MentItem  key="2">1-2</MentItem>
             <SubMenu title='1-3' >
@@ -80,7 +82,7 @@ function App() {
             </SubMenu>
             </SubMenu>
         </SubMenu>
-        <MentItem key="1" >itme 2</MentItem>
+        <MentItem key="1" icon={<PieChartOutlined />}>itme 2</MentItem>
         <MentItem key="2" >itme 3</MentItem>
         {/* <p>aaa</p> */}
       </Menu>

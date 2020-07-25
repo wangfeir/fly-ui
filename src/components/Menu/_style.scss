@@ -7,6 +7,7 @@
 	border-bottom: $menu-border-width solid $menu-border-color;
 	box-shadow: $menu-box-shadow;
 	.menu-item {
+		position: relative;
 		padding: $menu-item-padding-y $menu-item-padding-x;
 		cursor: pointer;
 		transition: $menu-transition;
@@ -23,7 +24,22 @@
 			cursor: default;
 		}
 	}
-	
+	.menuitem-text{
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 1rem;
+
+	}
+	.menuitem-icon{
+		line-height: 0;
+		padding-right: 10px;
+		display: inline-block;
+		vertical-align: middle;
+		// font-size: 16px;
+		// top: 0;
+		// bottom: 0;
+		// left: 5px;
+	}
 }
 // 竖向样式
 .menu-vertical {
@@ -31,22 +47,36 @@
 	border-bottom: none;
 	box-shadow: none;
 	border-right: $menu-border-width solid $menu-border-color;
-	.menu-submenu-open{
-		>.fly-submenu{
+	.submenu-title-icon {
+		font-size: 0;
+		position: absolute;
+		top: 40%;
+		right: 16px;
+		width: 10px;
+	}
+	.menu-submenu-select {
+		> .submenu-title {
+			color: $menu-item-active-color;
+		}
+	}
+	.menu-submenu-open {
+		> .fly-submenu {
 			display: none;
 		}
 	}
 	// .menu-item-hover {
-		.submenu-title{
-			&:hover{
-				color: $menu-item-active-color;
-			}
+	.submenu-title {
+		position: relative;
+		&:hover {
+			color: $menu-item-active-color;
 		}
-		.menu-item-li{
-			&:hover{
-				color: $menu-item-active-color;
-			}
+	}
+
+	.menu-item-li {
+		&:hover {
+			color: $menu-item-active-color;
 		}
+	}
 	.fly-submenu {
 		padding: 0;
 	}
@@ -57,6 +87,7 @@
 			color: $menu-item-active-color;
 			border-bottom: none;
 			background-color: #e6f7ff;
+			border-right: 2px solid $menu-item-active-color;
 		}
 
 		&.menu-submenu {
@@ -70,9 +101,7 @@
 				padding: $menu-item-padding-y $menu-item-padding-x;
 			}
 		}
-	
 	}
-
 }
 // 横向模块样式
 .menu-horizontal {
@@ -95,7 +124,7 @@
 			padding: $menu-item-padding-y $menu-item-padding-x;
 			margin-bottom: -$menu-border-width;
 		}
-		
+
 		// 下拉列表样式
 		.fly-submenu {
 			display: none;
@@ -109,32 +138,37 @@
 			border: $menu-border-width solid $menu-border-color;
 			padding-left: 0;
 			transform: translateY(-2px);
-			.menu-item-li{
+			.menu-item-li {
 				white-space: nowrap;
-				&:hover{
+				&:hover {
 					color: $menu-item-active-color;
 					border-color: transparent;
 				}
 			}
-			
 		}
 	}
-	.menu-item:hover {
+	.menu-item {
+		&:hover{
 			color: $menu-item-active-color;
 			border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
-		.fly-submenu {
-			.menu-item {
-				color: $body-color;
-				&:hover{
-					color: $menu-item-active-color;
-					border-color: transparent;
+			.fly-submenu {
+				.menu-item {
+					color: $body-color;
+					&:hover {
+						color: $menu-item-active-color;
+						border-color: transparent;
+					}
+				}
+			}
+			&.menu-submenu {
+				.fly-submenu {
+					display: block;
 				}
 			}
 		}
-		&.menu-submenu {
-			.fly-submenu {
-				display: block;
-			}
+		&.active{
+			color: $menu-item-active-color;
+			border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
 		}
 	}
 }
