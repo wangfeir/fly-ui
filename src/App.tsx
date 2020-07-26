@@ -1,7 +1,7 @@
 import React from 'react';
 import Button, { ButtonType, ButtonSize } from './components/Button/button'
 import Alert from './components/Alert/alert'
-import MentItem from './components/Menu/menuItem'
+import MenuItem from './components/Menu/menuItem'
 import Menu from './components/Menu/menu';
 import SubMenu from './components/Menu/subMenu'
 import {PieChartOutlined } from '@ant-design/icons';
@@ -38,52 +38,52 @@ function App() {
       </header>
       <Menu onSelect={(index) => { console.log(index) }} defaultIndex="2" style={{ width: 856 }}>
         <SubMenu title='itme 1' icon={<PieChartOutlined />}>
-          <MentItem disabled>
+          <MenuItem disabled>
             itme 1itme 1itme 1itme 1itme 1
-          </MentItem>
-          <MentItem icon={<PieChartOutlined />}>
+          </MenuItem>
+          <MenuItem icon={<PieChartOutlined />}>
             itme 2
-          </MentItem>
-          <MentItem>
+          </MenuItem>
+          <MenuItem>
             itme 3
-          </MentItem>
+          </MenuItem>
         </SubMenu>
-        <MentItem disabled >
+        <MenuItem disabled >
           itme 1
-          </MentItem>
-        <MentItem >
+          </MenuItem>
+        <MenuItem >
           itme 2
-          </MentItem>
-        <MentItem >
+          </MenuItem>
+        <MenuItem >
           itme 3
-          </MentItem>
+          </MenuItem>
       </Menu>
       <Menu mode="vertical" onSelect={(index) => { console.log(index) }} style={{ width: 256 }}>
         <SubMenu title='itme 1' key="3"  icon={<PieChartOutlined />}>
-          <MentItem disabled key="1">1-1</MentItem>
-          <MentItem  key="2">1-2</MentItem>
-            <SubMenu title='1-3' >
-              <MentItem disabled>
+          <MenuItem disabled key="1">1-1</MenuItem>
+          <MenuItem  key="2">1-2</MenuItem>
+            <SubMenu title='1-3' data-testid="child1-3">
+              <MenuItem disabled>
                 1-3-1
-              </MentItem>
-              <MentItem >
+              </MenuItem>
+              <MenuItem >
                 1-3-2
-              </MentItem>
+              </MenuItem>
               <SubMenu title='1-3-3' >
-              <MentItem disabled>
+              <MenuItem disabled>
                 1-3-3-1
-              </MentItem>
-              <MentItem >
+              </MenuItem>
+              <MenuItem >
               1-3-3-1
-              </MentItem>
-              <MentItem>
+              </MenuItem>
+              <MenuItem>
               1-3-3-1
-              </MentItem>
+              </MenuItem>
             </SubMenu>
             </SubMenu>
         </SubMenu>
-        <MentItem key="1" icon={<PieChartOutlined />}>itme 2</MentItem>
-        <MentItem key="2" >itme 3</MentItem>
+        <MenuItem key="1" icon={<PieChartOutlined />}>itme 2</MenuItem>
+        <MenuItem key="2" >itme 3</MenuItem>
         {/* <p>aaa</p> */}
       </Menu>
 

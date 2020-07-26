@@ -40,7 +40,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as React.FunctionComponentElement<MenuItemProps>;
       const { displayName } = childElement.type;
-      console.log('index222',index,context.index)
+      // console.log('index222',index,context.index)
 
       if (displayName === 'MenuItem'||displayName === 'SubMenu') {
         // 计算当前的层级数
@@ -48,7 +48,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         // console.log('stratumNum',stratumNum)
         // 根据层级数生成child距离左侧的padding
         const childStyle = {paddingLeft:stratumNum?stratumNum*24+'px':'0px'};
-        return React.cloneElement(childElement, { index: `${index}-${i}`, stratumNum:stratumNum,style:childStyle})
+        return React.cloneElement(childElement, { index: `${index}-${i}`,style:childStyle})
 
       } else {
         console.error('warning:SubMenu child is not MenuItem | SubMenu!')
@@ -75,7 +75,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     // }
   }
   return (
-    <li className={classes}  key={index}  >
+    <li className={classes}  key={index}  { ...restProps }>
       <div className='submenu-title' style={style} onClick={handleClick}>
       <span className="menuitem-icon">{icon}</span>
       <span className="menuitem-text">{title}</span>

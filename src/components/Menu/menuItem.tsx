@@ -12,7 +12,8 @@ export interface MenuItemProps {
 }
 
 const MenuItem: React.FC<MenuItemProps> = (props) => {
-  const { index, disabled, className, style, children, icon,stratumNum } = props
+    
+    const { index, disabled, className, style, children, icon,stratumNum, ...restProps} = props
   // 接收父元素传递进来的参数
   const context = useContext(MenuConetxt);
   // const [hoverStatus,setHoverStatus] = useState(false)
@@ -34,7 +35,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
   // console.log('context', context, index)
   // onmouseenter
   return (
-    <li className={classes} style={style} onClick={handleClick}>
+    <li className={classes} style={style} onClick={handleClick} {...restProps}>
       <span className="menuitem-icon">{icon}</span>
       <span className="menuitem-text">{children}</span>
     </li>
