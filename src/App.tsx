@@ -6,6 +6,9 @@ import Menu from './components/Menu/menu';
 import SubMenu from './components/Menu/subMenu'
 import {PieChartOutlined } from '@ant-design/icons';
 
+import Tabs from './components/Tabs/tabs'
+import TabPane from './components/Tabs/tabPane'
+
 function App() {
   const a = '123'
   if (a === '123') { }
@@ -36,6 +39,24 @@ function App() {
 
 
       </header>
+        <Tabs defaultActiveKey="2">
+          <TabPane tab="啊啊啊啊" key="1">
+            <p>Content of Tab Pane 1</p>
+          </TabPane>
+          <TabPane tab="啊啊啊啊2" key="2">
+          <p>Content of Tab Pane 2</p>
+
+          </TabPane>
+          <TabPane tab="啊啊啊啊1" key="3">
+          <p>Content of Tab Pane 3</p>
+
+          </TabPane>
+        </Tabs>
+
+
+
+
+
       <Menu onSelect={(index) => { console.log(index) }} defaultIndex="2" style={{ width: 856 }}>
         <SubMenu title='itme 1' icon={<PieChartOutlined />}>
           <MenuItem disabled>
