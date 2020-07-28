@@ -39,17 +39,15 @@ function App() {
 
 
       </header>
-        <Tabs defaultActiveKey="2">
-          <TabPane tab="啊啊啊啊" key="1">
+        <Tabs defaultActiveKey="1x">
+          <TabPane tab="啊啊啊啊" key="1x">
             <p>Content of Tab Pane 1</p>
           </TabPane>
-          <TabPane tab="啊啊啊啊2" key="2">
-          <p>Content of Tab Pane 2</p>
-
+          <TabPane tab="啊啊啊啊2" key="2x">
+            <p>Content of Tab Pane 2</p>
           </TabPane>
-          <TabPane tab="啊啊啊啊1" key="3">
-          <p>Content of Tab Pane 3</p>
-
+          <TabPane tab="啊啊啊啊1" key="3x">
+            <p>Content of Tab Pane 3</p>
           </TabPane>
         </Tabs>
 

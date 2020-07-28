@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, createContext,useContext } from 'react';
 import classNames from 'classnames';
 import TabPane, { TabPaneProps } from './tabPane'
 
@@ -12,7 +12,12 @@ export interface TabsProps {
   defaultActiveKey?: string;
   onTabClick?: (selectedIndex: string) => void
 }
-
+interface TabPaneContext {
+  activeKey: string;
+  tabClick?: (selectedIndex: string) => void
+}
+// 创建context
+export const TabsContext = createContext<TabPaneContext>({ activeKey: '' })
 
 const Tabs: React.FC<TabsProps> = (props) => {
   const {
@@ -23,70 +28,51 @@ const Tabs: React.FC<TabsProps> = (props) => {
     children,
     onTabClick
   } = props
-
   const classes = classNames('fly-tabs', { [`tabs-${size}`]: size, [`tabs-${type}`]: type, })
-  const context: any = []
+  const [active, setActive] = useState(defaultActiveKey)
+  const handleClick = (select: string) => {
+    setActive(select)
+  }
+  const passContext: TabPaneContext = {
+    activeKey: active || '',
+    tabClick: handleClick
+  }
+  const childrenContext: any = []
+  
   const renderChildren = () => {
-    const childrenContext: any = []
-    const childrenComponent = React.Children.map(children, (child, index) => {
+    return React.Children.map(children, (child, index) => {
       const childrenElement = child as React.FunctionComponentElement<TabPaneProps>;
       const childrenKey = childrenElement.key;
-
       const { displayName } = childrenElement.type;
-      console.log('childrenElement', childrenElement, childrenKey)
-      if (displayName === 'TabPane') {
-        // 判定显示哪个子元素的内容
-        let childrenActive = {}
-        // 如果有设置默认的 defaultActiveKey 则对比 否则 选择第一个
-        if (defaultActiveKey) {
-          if(defaultActiveKey === childrenKey){
-            childrenActive = { className: "active" }
-          }
-        } else if (index === 0) {
+
+      // 给内容元素添加active
+      let childrenActive = {}
+      if (childrenKey===active) {
           childrenActive = { className: "active" }
-        } 
-        childrenContext.push(React.createElement('li', childrenActive, childrenElement.props.children))
-
-        return React.cloneElement(childrenElement, { index: index.toString(), ...childrenActive})
-
-        //  将内容包裹进li标签里
+      }
+      if (displayName === 'TabPane') {
+        childrenContext.push(React.createElement('li', {...childrenActive}, childrenElement.props.children))
+        return React.cloneElement(childrenElement, { index: index.toString(), paneKey: childrenKey?.toString() })
       } else {
         console.error('warning:Tabs child is not TabPane')
       }
-
     })
-    return (
-      <div>
-        {/* 存放tabs的title */}
-        <ul className={classes}>
-          {childrenComponent}
-        </ul>
-        {/* 存放tabs的内容 */}
-        <ul className="tabs-context">
-          {childrenContext}
-        </ul>
-      </div>
-
-
-    )
 
   }
   // const 
   return (
     <div>
       <div className={classes}>
-        {renderChildren()}
+        <TabsContext.Provider value={passContext}>
+          <ul>
+            {renderChildren()}
+          </ul>
+          <ul>
+            {childrenContext}
+          </ul>
+        </TabsContext.Provider>
       </div>
-      {/* {
-        context.map((item:any,index:number)=>{
-          if(item){
-          return<div>{item.context}</div>
-          }
-        })
-      }
-      <div></div> */}
     </div>
-
   )
 }
 Tabs.defaultProps = {
