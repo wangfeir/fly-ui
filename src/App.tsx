@@ -39,7 +39,7 @@ function App() {
 
 
       </header>
-        <Tabs defaultActiveKey="1x">
+        <Tabs defaultActiveKey="1x" >
           <TabPane tab="啊啊啊啊" key="1x">
             <p>Content of Tab Pane 1</p>
           </TabPane>

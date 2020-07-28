@@ -8,7 +8,7 @@ export type TabsType = 'card' | 'editable-card' | 'line'
 export interface TabsProps {
   size?: TabsSize;
   type?: TabsType;
-  activeKey?: string;
+  // activeKey?: string;
   defaultActiveKey?: string;
   onTabClick?: (selectedIndex: string) => void
 }
@@ -23,7 +23,7 @@ const Tabs: React.FC<TabsProps> = (props) => {
   const {
     size,
     type,
-    activeKey,
+    // activeKey,
     defaultActiveKey,
     children,
     onTabClick
@@ -31,6 +31,9 @@ const Tabs: React.FC<TabsProps> = (props) => {
   const classes = classNames('fly-tabs', { [`tabs-${size}`]: size, [`tabs-${type}`]: type, })
   const [active, setActive] = useState(defaultActiveKey)
   const handleClick = (select: string) => {
+    if(onTabClick){
+      onTabClick(select)
+    }
     setActive(select)
   }
   const passContext: TabPaneContext = {
@@ -64,10 +67,10 @@ const Tabs: React.FC<TabsProps> = (props) => {
     <div>
       <div className={classes}>
         <TabsContext.Provider value={passContext}>
-          <ul>
+          <ul className="tabs-nav-box">
             {renderChildren()}
           </ul>
-          <ul>
+          <ul className='tabs-context'>
             {childrenContext}
           </ul>
         </TabsContext.Provider>
