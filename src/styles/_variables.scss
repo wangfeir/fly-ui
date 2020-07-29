@@ -228,3 +228,10 @@ $menu-item-active-color:$primary!default;
 $menu-item-active-border-width:2px !default;
 $menu-item-disabled-color: $gray-600!default;
 
+// tabs
+$tabs-font-size:14px;
+$tabs-border-width:$border-width !default;
+$tabs-border-color:$border-color !default;
+$tabs-border-active-color:$primary!default;
+$tabs-border-hover-color:$teal!default;
+$tabs-transition:color .15s ease-in-out, border-color .15s ease-in-out !default;

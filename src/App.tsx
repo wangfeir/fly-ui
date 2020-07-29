@@ -40,10 +40,10 @@ function App() {
 
       </header>
         <Tabs defaultActiveKey="1x" >
-          <TabPane tab="啊啊啊啊" key="1x">
+          <TabPane tab="啊啊啊啊" key="1x" icon={<PieChartOutlined />} >
             <p>Content of Tab Pane 1</p>
           </TabPane>
-          <TabPane tab="啊啊啊啊2" key="2x">
+          <TabPane tab="啊啊啊啊2" key="2x" disabled>
             <p>Content of Tab Pane 2</p>
           </TabPane>
           <TabPane tab="啊啊啊啊1" key="3x">

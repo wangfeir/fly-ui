@@ -1,21 +1,55 @@
 .fly-tabs {
-  ul,li{
-     list-style: none;
-  }
+	ul,
+	li {
+		list-style: none;
+	}
 
- .tabs-context{
-  li{
-    display: none;
-  }
-  .active{
-    display: block;
-  }
- } 
+	.tabs-context {
+		padding-left: 0;
+		li {
+			display: none;
+		}
+		.active {
+			display: block;
+		}
+	}
 
- .tabs-nav-box{
-   li{
-     display: inline-block;
-     padding:  0 5px;
-   }  
- }
+	.tabs-nav-box {
+		padding-left: 0;
+		border-bottom: $menu-border-width solid $menu-border-color;
+		li {
+      display: inline-block;
+      transform: $tabs-transition;
+			padding: 12px 5px;
+      margin: 0 32px 0 0;
+      font-size: $tabs-font-size;
+      cursor:pointer;
+
+      // pointer-events: none;
+      &:hover{
+        color:$tabs-border-hover-color ;
+      }
+      &.is-disabled{
+        color: $menu-item-disabled-color !important;
+        // pointer-events: none;
+        cursor:not-allowed;
+      }
+      .tabs-text{
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .tabs-icon{
+        line-height: 0;
+        padding-right: 10px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+		}
+		.active {
+      color:$tabs-border-active-color;
+      font-weight: 500;
+      border-bottom:2px solid $menu-item-active-color;
+		}
+	}
 }
