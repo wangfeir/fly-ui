@@ -13,7 +13,7 @@ export interface TabPaneProps {
 }
 
 const TabPane: React.FC<TabPaneProps> = (props) => {
-  const { tab, index, paneKey, children, disabled, className,icon } = props;
+  const { tab, index, paneKey, children, disabled, className,icon,...restProps } = props;
   const { activeKey, tabClick } = useContext(TabsContext);
   console.log('activeKey', paneKey, activeKey)
   const classes = classNames(className, {
@@ -28,7 +28,7 @@ const TabPane: React.FC<TabPaneProps> = (props) => {
 
   }
   return (
-    <li className={classes} key={paneKey} onClick={handlClick}>
+    <li className={classes}  onClick={handlClick} {...restProps}>
       {/* {icon}{tab} */}
       <span className="tabs-icon">{icon}</span>
       <span className="tabs-text">{tab}</span>

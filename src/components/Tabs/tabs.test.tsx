@@ -10,13 +10,13 @@ const testProps = {
 const generateTabs = (props: TabsProps) => {
   return (
     <Tabs defaultActiveKey="1x" data-testid="defalutTabs">
-      <TabPane tab="啊啊啊啊" key="1x" icon={<PieChartOutlined />} >
+      <TabPane tab="啊啊啊啊" key="1x" icon={<PieChartOutlined />} data-testid="tabPane1">
         <p>Content of Tab Pane 1</p>
       </TabPane>
-      <TabPane tab="啊啊啊啊2" key="2x" disabled>
+      <TabPane tab="啊啊啊啊2" key="2x" disabled  data-testid="tabPane2">
         <p>Content of Tab Pane 2</p>
       </TabPane>
-      <TabPane tab="啊啊啊啊1" key="3x">
+      <TabPane tab="啊啊啊啊1" key="3x"  data-testid="tabPane3">
         <p>Content of Tab Pane 3</p>
       </TabPane>
     </Tabs>
@@ -31,5 +31,11 @@ describe('test Tabs and TabPane component',()=>{
   it('should render Tabs and TabPane on default props',()=>{
     expect(menuElement).toBeInTheDocument();
     expect(menuElement).toHaveClass('fly-tabs')
+  })
+  it('test TabPane and defaultActive',()=>{
+   const childrenElement = warapper.getByTestId('tabPane1');
+   expect(childrenElement).toBeInTheDocument();
+  // 测试默认选中功能
+   expect(childrenElement).toHaveClass('active')
   })
 })
