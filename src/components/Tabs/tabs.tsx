@@ -26,7 +26,8 @@ const Tabs: React.FC<TabsProps> = (props) => {
     // activeKey,
     defaultActiveKey,
     children,
-    onTabClick
+    onTabClick,
+    ...restProps
   } = props
   const classes = classNames('fly-tabs', { [`tabs-${size}`]: size, [`tabs-${type}`]: type, })
   const [active, setActive] = useState(defaultActiveKey)
@@ -49,9 +50,12 @@ const Tabs: React.FC<TabsProps> = (props) => {
       const { displayName } = childrenElement.type;
 
       // 给内容元素添加active
-      let childrenActive = {}
+      let childrenActive = {
+        key:index,      // 如果不添加key回报错   Warning: Each child in a list should have a unique "key" prop.
+        className:""
+      }
       if (childrenKey===active) {
-          childrenActive = { className: "active" }
+          childrenActive.className ="active"
       }
       if (displayName === 'TabPane') {
         childrenContext.push(React.createElement('li', {...childrenActive}, childrenElement.props.children))
@@ -60,12 +64,10 @@ const Tabs: React.FC<TabsProps> = (props) => {
         console.error('warning:Tabs child is not TabPane')
       }
     })
-
   }
   // const 
   return (
-    <div>
-      <div className={classes}>
+      <div className={classes} {...restProps}>
         <TabsContext.Provider value={passContext}>
           <ul className="tabs-nav-box">
             {renderChildren()}
@@ -75,7 +77,6 @@ const Tabs: React.FC<TabsProps> = (props) => {
           </ul>
         </TabsContext.Provider>
       </div>
-    </div>
   )
 }
 Tabs.defaultProps = {

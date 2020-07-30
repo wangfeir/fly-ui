@@ -64,7 +64,6 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   const handleClick = (e:any) => {
     e.stopPropagation();
     console.log(mode,'openStatus',index)
-
     if(context.mode==='vertical'){
       console.log('openStatus',openStatus)
       setOpenStatus(!openStatus)
