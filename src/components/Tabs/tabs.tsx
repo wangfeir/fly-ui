@@ -2,8 +2,8 @@ import React, { useState, createContext,useContext } from 'react';
 import classNames from 'classnames';
 import TabPane, { TabPaneProps } from './tabPane'
 
-export type TabsSize = 'large' | 'default' | 'small'
-export type TabsType = 'card' | 'editable-card' | 'line'
+export type TabsSize = 'large' | 'default' | 'small';
+export type TabsType = 'card' | 'editable-card' | 'line';
 
 export interface TabsProps {
   size?: TabsSize;
