@@ -30,7 +30,7 @@ const TabPane: React.FC<TabPaneProps> = (props) => {
   return (
     <li className={classes}  onClick={handlClick} {...restProps}>
       {/* {icon}{tab} */}
-      <span className="tabs-icon">{icon}</span>
+      {icon&&<span className="tabs-icon">{icon}</span>}
       <span className="tabs-text">{tab}</span>
     </li>
   )

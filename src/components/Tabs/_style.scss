@@ -13,43 +13,88 @@
 			display: block;
 		}
 	}
-
+	&.tabs-small {
+		.tabs-nav-box {
+			li {
+				padding: 8px 5px;
+			}
+		}
+	}
+	&.tabs-large {
+		.tabs-nav-box {
+			li {
+				.tabs-text {
+					font-size: 16px;
+				}
+				padding: 16px 5px;
+			}
+		}
+	}
+	&.tabs-card {
+    .tabs-nav-box {
+      li {
+        padding: 8px 16px;
+        background: #fafafa;
+        margin: 0 2px -1px 0;
+        border: 1px solid #f0f0f0;
+        border-radius: 2px 2px 0 0;
+        &.active {
+          background: #fff;
+          border-bottom-color: transparent;
+        }
+      }
+    }
+		&.tabs-large {
+			.tabs-nav-box {
+				li {
+					padding: 7px 16px 6px;
+				}
+			}
+    }
+    &.tabs-small {
+			.tabs-nav-box {
+				li {
+					padding: 6px 16px;
+				}
+			}
+		}
+	}
 	.tabs-nav-box {
 		padding-left: 0;
 		border-bottom: $menu-border-width solid $menu-border-color;
 		li {
-      display: inline-block;
-      transform: $tabs-transition;
+			display: inline-block;
+			transform: $tabs-transition;
 			padding: 12px 5px;
-      margin: 0 32px 0 0;
-      font-size: $tabs-font-size;
-      cursor:pointer;
+			margin: 0 32px 0 0;
+			font-size: $tabs-font-size;
+			cursor: pointer;
 
-      // pointer-events: none;
-      &:hover{
-        color:$tabs-border-hover-color ;
-      }
-      &.is-disabled{
-        color: $menu-item-disabled-color !important;
-        // pointer-events: none;
-        cursor:not-allowed;
-      }
-      .tabs-text{
-        font-size: 14px;
-        display: inline-block;
-        vertical-align: middle;
-      }
-      .tabs-icon{
-        line-height: 0;
-        padding-right: 10px;
-        display: inline-block;
-        vertical-align: middle;
-      }
+			// pointer-events: none;
+			&:hover {
+				color: $tabs-border-hover-color;
+			}
+			&.is-disabled {
+				color: $menu-item-disabled-color !important;
+				// pointer-events: none;
+				cursor: not-allowed;
+			}
+			.tabs-text {
+				font-size: 14px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.tabs-icon {
+				line-height: 0;
+				padding-right: 10px;
+				display: inline-block;
+				vertical-align: middle;
+			}
 		}
 		.active {
-      color:$tabs-border-active-color;
-      font-weight: 500;
-      border-bottom:2px solid $menu-item-active-color;
+			color: $tabs-border-active-color;
+			font-weight: 500;
+			border-bottom: 2px solid $menu-item-active-color;
 		}
 	}
 }
