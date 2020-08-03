@@ -39,7 +39,7 @@ function App() {
 
 
       </header>
-        <Tabs defaultActiveKey="1x" size="large"  type="card">
+        <Tabs defaultActiveKey="1x" size="large"  type="card" >
           <TabPane tab="啊啊啊啊" key="1x" icon={<PieChartOutlined />} >
             <p>Content of Tab Pane 1</p>
           </TabPane>
@@ -51,6 +51,17 @@ function App() {
           </TabPane>
         </Tabs>
 
+        <Tabs defaultActiveKey="1x" size="large"  type="card" tabPosition="left">
+          <TabPane tab="啊啊啊啊" key="1x" icon={<PieChartOutlined />} >
+            <p>Content of Tab Pane 1</p>
+          </TabPane>
+          <TabPane tab="啊啊啊啊2" key="2x" >
+            <p>Content of Tab Pane 2</p>
+          </TabPane>
+          <TabPane tab="啊啊啊啊1" key="3x">
+            <p>Content of Tab Pane 3</p>
+          </TabPane>
+        </Tabs>
 
 
 

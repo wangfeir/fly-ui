@@ -4,11 +4,11 @@ import TabPane, { TabPaneProps } from './tabPane'
 
 export type TabsSize = 'large' | 'default' | 'small';
 export type TabsType = 'card' | 'editable-card' | 'line';
-
+export type TabsPosition = 'left' | 'right' | 'top'|'bottom';
 export interface TabsProps {
   size?: TabsSize;
   type?: TabsType;
-  // activeKey?: string;
+  tabPosition?: TabsPosition;
   defaultActiveKey?: string;
   onTabClick?: (selectedIndex: string) => void
 }
@@ -23,13 +23,13 @@ const Tabs: React.FC<TabsProps> = (props) => {
   const {
     size,
     type,
-    // activeKey,
+    tabPosition,
     defaultActiveKey,
     children,
     onTabClick,
     ...restProps
   } = props
-  const classes = classNames('fly-tabs', { [`tabs-${size}`]: size, [`tabs-${type}`]: type, })
+  const classes = classNames('fly-tabs', { [`tabs-${size}`]: size, [`tabs-${type}`]: type, [`tabs-${tabPosition}`]:tabPosition})
   const [active, setActive] = useState(defaultActiveKey)
   const handleClick = (select: string) => {
     if(onTabClick){
