@@ -5,6 +5,7 @@ import MenuItem from './components/Menu/menuItem'
 import Menu from './components/Menu/menu';
 import SubMenu from './components/Menu/subMenu'
 import {PieChartOutlined } from '@ant-design/icons';
+import Input from './components/Input/input'
 
 import Tabs from './components/Tabs/tabs'
 import TabPane from './components/Tabs/tabPane'
@@ -37,7 +38,7 @@ function App() {
           Learn React
         </a> */}
 
-
+      <Input placeholder="我是按钮" defaultValue="22222"/>
       </header>
         <Tabs defaultActiveKey="1x" size="large"  type="card" >
           <TabPane tab="啊啊啊啊" key="1x" icon={<PieChartOutlined />} >
