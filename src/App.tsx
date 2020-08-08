@@ -39,6 +39,8 @@ function App() {
         </a> */}
 
       <Input placeholder="我是按钮" defaultValue="22222"/>
+      <Input placeholder="我是按钮" size="large" defaultValue="22222"/>
+      <Input placeholder="我是按钮" size="small" defaultValue="22222"/>
       </header>
         <Tabs defaultActiveKey="1x" size="large"  type="card" >
           <TabPane tab="啊啊啊啊" key="1x" icon={<PieChartOutlined />} >

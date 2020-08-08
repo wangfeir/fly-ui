@@ -9,6 +9,7 @@ export interface InputProps {
   placeholder?: string
   disabled?: boolean
   size?:InputSize
+  onChange?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
 }
 // export enum ButtonSize {
 //   Large = "large",
@@ -22,9 +23,9 @@ const Input: React.FC<InputProps> = (props) => {
     [`input-${size}`]: size, 
   })
   return (
-    <div className={className}>
-      <input type="text" defaultValue={defaultValue} placeholder={placeholder} {...restProps} />
-    </div>
+    // <div >
+      <input className={className} type="text" defaultValue={defaultValue} placeholder={placeholder} {...restProps} />
+    // </div>
   )
 }
 Input.defaultProps={
