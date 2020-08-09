@@ -17,14 +17,22 @@ export interface InputProps {
 //   Small = "small",
 // }
 const Input: React.FC<InputProps> = (props) => {
-  const { placeholder, defaultValue, size, ...restProps } = props
+  const { placeholder, defaultValue, size,onChange, ...restProps } = props
   const className = classNames('fly-input', { 
     ['input-disabled']: restProps.disabled, 
     [`input-${size}`]: size, 
   })
+
+  const handChange = (e:any) =>{
+    console.log('handChange',e.target.value)
+    onChange?.bind(e)
+    if(onChange){
+      onChange(e)
+    }
+  }
   return (
     // <div >
-      <input className={className} type="text" defaultValue={defaultValue} placeholder={placeholder} {...restProps} />
+      <input className={className} type="text" onChange={handChange} defaultValue={defaultValue} placeholder={placeholder} {...restProps} />
     // </div>
   )
 }
