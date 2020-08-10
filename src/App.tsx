@@ -42,7 +42,7 @@ function App() {
       <Input placeholder="我是按钮" defaultValue="1111" onChange={(e)=>{console.log('123123',e.target.value)}}/>
       <Input placeholder="我是按钮" size="large" defaultValue="22222"/>
       <Input placeholder="我是按钮" size="small" defaultValue="22222"/>
-      <Textarea placeholder="内容框" defaultValue="21312312331"/>
+      <Textarea placeholder="内容框" defaultValue="21312312331" autoSize={{ minRows:4, maxRows: 6 }}/>
       </header>
         <Tabs defaultActiveKey="1x" size="large"  type="card" >
           <TabPane tab="啊啊啊啊" key="1x" icon={<PieChartOutlined />} >
