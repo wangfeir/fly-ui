@@ -42,6 +42,10 @@ function App() {
       <Input placeholder="我是按钮" defaultValue="1111" onChange={(e)=>{console.log('123123',e.target.value)}}/>
       <Input placeholder="我是按钮" size="large" defaultValue="22222"/>
       <Input placeholder="我是按钮" size="small" defaultValue="22222"/>
+    
+      <Input placeholder="我是按钮" size="large" defaultValue="22222" prefix={<PieChartOutlined  style={{ color: 'rgba(0,0,0,.25)' }}  />} suffix={<PieChartOutlined style={{ color: 'rgba(0,0,0,.45)' }} />}/>
+      <Input placeholder="我是按钮" size="small" defaultValue="22222" prefix={<PieChartOutlined  style={{ color: 'rgba(0,0,0,.25)' }}  />} suffix={<PieChartOutlined style={{ color: 'rgba(0,0,0,.45)' }} />}/>
+      <Input placeholder="我是按钮" defaultValue="22222" prefix={<PieChartOutlined />} suffix={<PieChartOutlined />}/>
       <Textarea placeholder="内容框" defaultValue="21312312331" autoSize={{ minRows:4, maxRows: 6 }}/>
       </header>
         <Tabs defaultActiveKey="1x" size="large"  type="card" >
