@@ -7,6 +7,7 @@ import SubMenu from './components/Menu/subMenu'
 import {PieChartOutlined } from '@ant-design/icons';
 import Input from './components/Input/input'
 import Textarea from './components/Input/textarea'
+import Select from './components/Select/select'
 
 import Tabs from './components/Tabs/tabs'
 import TabPane from './components/Tabs/tabPane'
@@ -38,7 +39,7 @@ function App() {
         >
           Learn React
         </a> */}
-
+      <Select />
       <Input placeholder="我是按钮" defaultValue="1111" onChange={(e)=>{console.log('123123',e.target.value)}}/>
       <Input placeholder="我是按钮" size="large" defaultValue="22222"/>
       <Input placeholder="我是按钮" size="small" defaultValue="22222"/>
