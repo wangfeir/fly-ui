@@ -39,7 +39,8 @@ function App() {
         >
           Learn React
         </a> */}
-      <Select />
+      <Select placeholder="请选择" style={{width: '200px'}}/>
+      <Select mode="multiple" />
       <Input placeholder="我是按钮" defaultValue="1111" onChange={(e)=>{console.log('123123',e.target.value)}}/>
       <Input placeholder="我是按钮" size="large" defaultValue="22222"/>
       <Input placeholder="我是按钮" size="small" defaultValue="22222"/>

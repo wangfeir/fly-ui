@@ -1,0 +1,12 @@
+.fly-select{
+  .select-input{
+    border: 1px solid #d9d9d9;
+  }
+  .select-option-list{
+    display: none;
+    &.option-show{
+      display: block;
+    }
+  }
+
+}
