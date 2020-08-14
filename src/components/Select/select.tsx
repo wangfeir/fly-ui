@@ -28,14 +28,26 @@ const Select: React.FC<SelectProps> = (props) => {
   })
 
   const handFocus = () => {
+    console.log('handFocus')
     setOptionShow(true)
   }
   const handBlur = () => {
+    // setOptionShow(false)
+
+  }
+  window.onclick= (e:any)=>{
+    console.log('eeee123',e)
+    console.log('eeee455',e.target.dataset.id)
+    if((e.target.name&&e.target.name==="selectInput")||e.target.dataset.id==="selectInput"){
+      return false
+    }
     setOptionShow(false)
+  }
+  const handleClick = () =>{
 
   }
   return (
-    <div className={classnames} style={style}>
+    <div className={classnames} style={style}  data-id="selectInput">
       <div >
         {!mode && <div className="select-input">
           <span className="select-placeholder">
@@ -45,12 +57,12 @@ const Select: React.FC<SelectProps> = (props) => {
         {mode === 'multiple' && <ul>
           <li>select1</li>
           <li>
-            <input type="text" placeholder={placeholder} onFocus={handFocus} onBlur={handBlur} />
+            <input type="text" name="selectInput"  placeholder={placeholder} onFocus={handFocus} />
           </li>
         </ul>}
       </div>
       <ul className={optionClass}>
-        <Option>aaaaaa</Option>
+        <Option >aaaaaa</Option>
       </ul>
     </div>
   )
